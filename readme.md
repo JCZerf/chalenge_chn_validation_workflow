@@ -52,6 +52,7 @@ O workflow é composto por 10 etapas integradas, cada uma automatizada por scrip
 ## 📁 Estrutura do projeto
 
 
+```
 Chalenge_CNH_Validation/
 ├── readme.md
 ├── requirements.txt
@@ -72,6 +73,7 @@ Chalenge_CNH_Validation/
 │   ├── 07_verifica_status_liveness.py
 │   ├── 08_compara_faces_facematch.py
 │   └── 09_validacao_final.py
+```
 
 
 ## ✅ Como executar os scripts localmente
