@@ -150,8 +150,32 @@ Este fluxo pode ser adaptado para:
 
 ---
 
-Para dúvidas técnicas, consulte o [README.md](../README.md) ou entre em contato com o desenvolvedor.
 
 ---
+
+## 🚧 Principais Desafios e Decisões Técnicas
+
+Durante o desenvolvimento deste desafio, enfrentei diversos processos complexos, especialmente por nunca ter utilizado a plataforma Windmill anteriormente. Apesar de ser uma excelente ferramenta para automação, tive dificuldades em extrair seu máximo potencial, principalmente em relação à interface de usuário (UI) e opções avançadas como triggers, formulários e etapas de aprovação.
+
+Minha experiência prévia com automação era limitada, o que tornou o desafio ainda maior: além de criar todo o fluxo de dados, tratar as informações e integrar com as quatro APIs da mostQI, precisei aprender e aplicar conceitos de automação no Windmill durante o processo do desafio. Para superar essas barreiras, dediquei tempo à leitura detalhada da documentação do Windmill e das APIs, buscando extrair o máximo possível dentro do prazo.
+
+### Decisões Técnicas
+
+- **Uso de TypeScript nos passos sem conexão com API:**  Optei por TypeScript nos scripts que não faziam integração direta com as APIs, pois a documentação do Windmill indicava melhor compatibilidade e integração para formulários e lógica de UI.
+- **Integração com APIs via `requests`:**  Para as etapas de conexão com as APIs da mostQI, utilizei a biblioteca `requests` em Python, por ser a abordagem mais recomendada e amplamente utilizada em ambientes corporativos.
+- **UI/UX no Windmill:**  Devido às limitações da plataforma, utilizei formulários (`form`) e aprovações (`approval`) para todas as interfaces, com inputs do tipo string/file obrigatórios para garantir a passagem correta dos dados entre etapas.
+- **Liveness Link:**  Não consegui implementar um redirecionamento automático para o link de vivacidade. Por isso, criei um passo dedicado com explicação e orientação ao usuário, incluindo o link para validação. Como o link era muito longo e não havia opção nativa para torná-lo mais amigável, utilizei uma API externa de encurtamento de links — uma solução provisória que não adotaria em produção.
+- **Feedback Visual:**  Dadas as limitações de UI, optei por apresentar o resultado final usando ícones e texto puro, detalhando o status de cada etapa executada.
+- **Validações e Feedback:**  Em todos os passos, incluí validações robustas e mensagens de erro claras para orientar o usuário e garantir a confiabilidade do fluxo.
+
+O maior desafio foi pensar o fluxo com uma visão de produto, já que não tinha experiência anterior com esse tipo de serviço. Pesquisei bastante para entender o que deveria ser entregue e como estruturar o workflow para atender às necessidades do usuário final.
+
+Esses fatores exigiram bastante adaptação, pesquisa e aprendizado contínuo, mas contribuíram para a entrega de uma solução robusta, flexível e alinhada aos objetivos do desafio.
+
+---
+
+Para dúvidas técnicas, consulte o [README.md](../README.md) ou entre em contato com o desenvolvedor.
+
+----
 **Desenvolvido por:** José Carlos Miranda Leite  
-GitHub: [@JCZerf](https://github.com/JCZerf) • Email: josecarlosmrlt@outlook.com  
+GitHub: [@JCZerf](https://github.com/JCZerf) • Email: josecarlosmrlt@outlook.com
