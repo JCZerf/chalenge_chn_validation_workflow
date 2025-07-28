@@ -56,6 +56,11 @@ def main(
         def comparar(valor1: str, valor2: str) -> bool:
             return normalizar(valor1) == normalizar(valor2)
 
+        def comparar_rg(rg1, rg2):
+            n1 = normalizar(rg1)
+            n2 = normalizar(rg2)
+            return n1 == n2 or n1 in n2 or n2 in n1
+
         def format_linha(nome, val_frente, val_qr, status):
             return f"- {nome}: {'✅' if status else '❌'}\n  - Frente da CNH: `{val_frente}`\n  - QR Code: `{val_qr}`"
 
@@ -80,19 +85,7 @@ def main(
             "RG": (
                 rg_idp,
                 rg_vio,
-                (
-                    comparar(rg_idp, rg_vio)
-                    if isinstance(rg_idp, str) and isinstance(rg_vio, str)
-                    else (
-                        False or rg_idp in rg_vio
-                        if isinstance(rg_idp, str) and isinstance(rg_vio, str)
-                        else (
-                            False or rg_vio in rg_idp
-                            if isinstance(rg_idp, str) and isinstance(rg_vio, str)
-                            else False
-                        )
-                    )
-                ),
+                comparar_rg(rg_idp, rg_vio),
             ),
             "Registro CNH": (
                 registro_idp,
