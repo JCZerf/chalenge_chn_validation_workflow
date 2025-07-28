@@ -42,7 +42,13 @@ def comparar_faces(jwt_token: str, file_a: bytes, base64_str_b: str) -> dict:
         response = requests.post(url, headers=headers, files=files)
         response.raise_for_status()
     except requests.exceptions.HTTPError as e:
-        raise Exception("Erro ao comparar imagens: verifique os arquivos enviados.")
+        status_code = getattr(e.response, "status_code", "N/A")
+        response_text = getattr(e.response, "text", "")
+        raise Exception(
+            f"Erro ao comparar imagens: verifique os arquivos enviados.\n"
+            f"Código HTTP: {status_code}\n"
+            f"Detalhes: {response_text}"
+        )
     except Exception as e:
         raise Exception(f"Erro inesperado na requisição FaceMatch: {str(e)}")
 

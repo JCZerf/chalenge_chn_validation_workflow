@@ -85,9 +85,16 @@ def main(client_key: str, process_id: str):
         }
 
     except requests.exceptions.HTTPError as http_err:
+        status_code = getattr(http_err.response, "status_code", "N/A")
+        response_text = getattr(http_err.response, "text", "")
         return {
             "title": "Erro HTTP",
-            "description": f"Erro na requisição: {http_err}",
+            "description": (
+                f"Erro na requisição HTTP.\n"
+                f"Código: {status_code}\n"
+                f"Detalhes: {response_text}\n"
+                f"Exceção: {http_err}"
+            ),
             "default_args": {"imagem_base64": None},
         }
     except Exception as e:
