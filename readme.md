@@ -63,10 +63,10 @@ Chalenge_CNH_Validation/
 │   ├── face_match1_demo.png
 │   ├── face_match2_demo.jpg
 ├── steps/
-│   ├── 00_boas_vindas.py
-│   ├── 01_upload_cnh_frente.py
+│   ├── 00_boas_vindas.ts
+│   ├── 01_upload_cnh_frente.ts
 │   ├── 02_processar_cnh_frente_idp.py
-│   ├── 03_upload_cnh_qrcode.py
+│   ├── 03_upload_cnh_qrcode.ts
 │   ├── 04_processa_cnh_qrcode_vio.py
 │   ├── 05_liveness_get_link_start.py
 │   ├── 06_instrucoes_liveness.py
